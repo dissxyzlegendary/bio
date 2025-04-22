@@ -116,9 +116,18 @@
     </div>
 
     <!-- เพลงที่เล่นอัตโนมัติ -->
-    <audio autoplay>
+    <audio id="bg-music" muted>
         <source src="https://r2.guns.lol/6d9d97ea-970c-4c76-a60a-5f373f99d87e.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
+
+    <script>
+        // ให้เสียงเริ่มเมื่อผู้ใช้คลิกครั้งแรก
+        const audio = document.getElementById('bg-music');
+        document.body.addEventListener('click', () => {
+            audio.muted = false; // ปลดเสียงจาก muted
+            audio.play(); // เริ่มเล่นเสียง
+        });
+    </script>
 </body>
 </html>
