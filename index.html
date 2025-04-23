@@ -69,12 +69,17 @@
             50% { transform: translateY(-10px); }
         }
 
+        .social-btns {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
         .btn {
             background-color: transparent;
             border: none;
             padding: 5px;
             cursor: pointer;
-            margin-top: 20px;
             transition: transform 0.3s ease;
         }
         .btn img {
@@ -84,6 +89,14 @@
         }
         .btn:hover img {
             transform: scale(1.1);
+        }
+
+        /* Audio player style */
+        .audio-player {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
     </style>
 </head>
@@ -100,15 +113,22 @@
             <span>ア</span><span>ディ</span><span>ソ</span><span>ー</span><span>ン</span>
         </h1>
 
-        <a href="https://www.instagram.com/dissxyzlegendary" class="btn" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Icon">
-        </a>
-    </div>
+        <div class="social-btns">
+            <a href="https://www.instagram.com/dissxyzlegendary" class="btn" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Icon">
+            </a>
+            <a href="https://www.facebook.com/100064801885048" class="btn" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+            </a>
+        </div>
 
-    <!-- YouTube AutoPlay (Hidden) -->
-    <audio autoplay>
-        <source src="https://r2.guns.lol/8f48c616-c306-4e96-a1fd-9154c0e5f08f.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
+        <!-- Audio player section -->
+        <div class="audio-player">
+            <audio controls>
+                <source src="https://r2.guns.lol/8f48c616-c306-4e96-a1fd-9154c0e5f08f.mp3" type="audio/mp3">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </div>
 </body>
 </html>
