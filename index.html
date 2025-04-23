@@ -16,6 +16,7 @@
             justify-content: center;
             align-items: center;
             background-color: #111;
+            cursor: pointer;
         }
         .background-video {
             position: absolute;
@@ -90,14 +91,6 @@
         .btn:hover img {
             transform: scale(1.1);
         }
-
-        /* Audio player style */
-        .audio-player {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -121,14 +114,20 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
             </a>
         </div>
-
-        <!-- Audio player section -->
-        <div class="audio-player">
-            <audio controls>
-                <source src="https://r2.guns.lol/8f48c616-c306-4e96-a1fd-9154c0e5f08f.mp3" type="audio/mp3">
-                Your browser does not support the audio tag.
-            </audio>
-        </div>
     </div>
+
+    <!-- Hidden audio player -->
+    <audio id="background-music" preload="auto">
+        <source src="your-audio-file.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        // Play music when user clicks anywhere on the page
+        document.body.addEventListener('click', function() {
+            var audio = document.getElementById('background-music');
+            audio.play();
+        });
+    </script>
 </body>
 </html>
