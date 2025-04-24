@@ -1,133 +1,209 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bio Website of アディソーン">
-    <title>アディソーン</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #111;
-            cursor: pointer;
-        }
-        .background-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .profile-container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .profile-container img {
-            border-radius: 50%;
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
-        }
-        .profile-container h1 {
-            font-size: 32px;
-            margin: 0;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-            display: inline-block;
-            animation: shake 2s infinite;
-        }
-        .profile-container h1 span {
-            display: inline-block;
-            opacity: 0;
-            animation: shake 1s forwards;
-        }
-        .profile-container h1 span:nth-child(1) { animation-delay: 0s; }
-        .profile-container h1 span:nth-child(2) { animation-delay: 0.2s; }
-        .profile-container h1 span:nth-child(3) { animation-delay: 0.4s; }
-        .profile-container h1 span:nth-child(4) { animation-delay: 0.6s; }
-        .profile-container h1 span:nth-child(5) { animation-delay: 0.8s; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bio Website of アディソーン">
+  <title>アディソーン</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #111;
+      cursor: pointer;
+    }
 
-        @keyframes shake {
-            0%, 100% { opacity: 1; transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
+    .background-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
 
-        .social-btns {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
+    .profile-container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .btn {
-            background-color: transparent;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .btn img {
-            width: 40px;
-            height: 40px;
-            transition: transform 0.3s ease;
-        }
-        .btn:hover img {
-            transform: scale(1.1);
-        }
-    </style>
+    .profile-container img {
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .profile-container h1 {
+      font-size: 32px;
+      margin: 0;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      animation: shake 2s infinite;
+    }
+
+    .profile-container h1 span {
+      display: inline-block;
+      opacity: 0;
+      animation: shake 1s forwards;
+    }
+
+    .profile-container h1 span:nth-child(1) { animation-delay: 0s; }
+    .profile-container h1 span:nth-child(2) { animation-delay: 0.2s; }
+    .profile-container h1 span:nth-child(3) { animation-delay: 0.4s; }
+    .profile-container h1 span:nth-child(4) { animation-delay: 0.6s; }
+    .profile-container h1 span:nth-child(5) { animation-delay: 0.8s; }
+
+    @keyframes shake {
+      0%, 100% { opacity: 1; transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .social-btns {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: transparent;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .btn img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover img {
+      transform: scale(1.1);
+    }
+
+    .video-frame-left {
+      position: absolute;
+      top: 50%;
+      left: 190px;
+      transform: translateY(-50%);
+      width: 380px;
+      height: 680px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.6);
+      z-index: 2;
+      transition: transform 0.2s ease;
+      transform-style: preserve-3d;
+      will-change: transform;
+      perspective: 1000px;
+    }
+
+    .video-frame-left::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(
+        400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(0, 170, 255, 0.2),
+        transparent 60%
+      );
+      transition: background 0.2s ease;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .video-frame-left video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
 <body>
-    <video class="background-video" autoplay muted loop>
-        <source src="https://r2.guns.lol/c045de5a-83ae-40c1-b2a2-53aa0d438dfb.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+
+  <div class="video-frame-left">
+    <video autoplay muted loop playsinline>
+      <source src="https://r2.guns.lol/93526371-816e-4306-b5de-1feae8dbd2a7.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
+  </div>
 
-    <div class="profile-container">
-        <img src="https://media.discordapp.net/attachments/1364273957137809588/1364290628715810826/19ad2f3a23ab53a1b6b52e8e8ce716bd.jpg?ex=68092229&is=6807d0a9&hm=626f5760e0979ee44ae54574ea167a0f1d4d9d661868ff6918be4b2ac604083a&=&format=webp" alt="Profile Picture">
-        
-        <h1>
-            <span>ア</span><span>ディ</span><span>ソ</span><span>ー</span><span>ン</span>
-        </h1>
+  <video class="background-video" autoplay muted loop>
+    <source src="https://r2.guns.lol/6c919e75-16ac-4567-9bf4-7fbdd445a6d2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-        <div class="social-btns">
-            <a href="https://www.instagram.com/dissxyzlegendary" class="btn" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Icon">
-            </a>
-            <a href="https://www.facebook.com/61564341938106" class="btn" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
-            </a>
-        </div>
+  <div class="profile-container">
+    <img src="https://media.discordapp.net/attachments/1364273957137809588/1364290628715810826/19ad2f3a23ab53a1b6b52e8e8ce716bd.jpg?ex=68092229&is=6807d0a9&hm=626f5760e0979ee44ae54574ea167a0f1d4d9d661868ff6918be4b2ac604083a&=&format=webp" alt="Profile Picture">
+    <h1>
+      <span>ア</span><span>ディ</span><span>ソ</span><span>ー</span><span>ン</span>
+    </h1>
+    <div class="social-btns">
+      <a href="https://www.instagram.com/dissxyzlegendary" class="btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Instagram Icon">
+      </a>
+      <a href="https://www.facebook.com/61564341938106" class="btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon">
+      </a>
     </div>
+  </div>
 
-    <!-- Hidden audio player -->
-    <audio id="background-music" preload="auto">
-        <source src="https://r2.guns.lol/a4c1dfda-7c08-4f88-a67b-c4b41d358e75.mp3">
-        Your browser does not support the audio tag.
-    </audio>
+  <audio id="background-music" preload="auto">
+    <source src="https://r2.guns.lol/a4c1dfda-7c08-4f88-a67b-c4b41d358e75.mp3">
+    Your browser does not support the audio tag.
+  </audio>
 
-    <script>
-        // Play music when user clicks anywhere on the page
-        document.body.addEventListener('click', function() {
-            var audio = document.getElementById('background-music');
-            audio.play();
-        });
-    </script>
+  <script>
+    // เล่นเพลงเมื่อคลิกที่ body
+    document.body.addEventListener('click', function () {
+      var audio = document.getElementById('background-music');
+      audio.play();
+    });
+  
+    // เอฟเฟกต์ glow + หันได้เฉพาะขวา
+    const frame = document.querySelector('.video-frame-left');
+    frame.addEventListener('mousemove', (e) => {
+      const rect = frame.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+  
+      // Glow ตำแหน่ง
+      frame.style.setProperty('--mouse-x', `${x}px`);
+      frame.style.setProperty('--mouse-y', `${y}px`);
+  
+      // คำนวณองศาหันขวา (เฉพาะขวา)
+      let rotateY = (x / rect.width) * 25; // ค่าจะอยู่ที่ 0 ถึง 35 องศา
+      rotateY = Math.max(0, rotateY); // ไม่ให้ติดลบ = ไม่หันซ้าย
+  
+      frame.style.transform = `translateY(-50%) rotateX(0deg) rotateY(${rotateY}deg)`;
+    });
+  
+    frame.addEventListener('mouseleave', () => {
+      frame.style.transform = 'translateY(-50%) rotateX(0deg) rotateY(0deg)';
+    });
+  </script>    
+
 </body>
 </html>
