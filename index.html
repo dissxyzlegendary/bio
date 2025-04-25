@@ -124,11 +124,12 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: radial-gradient(
+      /* ซ่อน glow แบบ radial */
+      /* background: radial-gradient(
         400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
         rgba(0, 170, 255, 0.2),
         transparent 60%
-      );
+      ); */
       transition: background 0.2s ease;
       pointer-events: none;
       z-index: 3;
@@ -181,25 +182,19 @@
       var audio = document.getElementById('background-music');
       audio.play();
     });
-  
-    // เอฟเฟกต์ glow + หันได้เฉพาะขวา
+
+    // เอฟเฟกต์หันขวา (ไม่มีแสงแล้ว)
     const frame = document.querySelector('.video-frame-left');
     frame.addEventListener('mousemove', (e) => {
       const rect = frame.getBoundingClientRect();
       const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-  
-      // Glow ตำแหน่ง
-      frame.style.setProperty('--mouse-x', `${x}px`);
-      frame.style.setProperty('--mouse-y', `${y}px`);
-  
-      // คำนวณองศาหันขวา (เฉพาะขวา)
-      let rotateY = (x / rect.width) * 25; // ค่าจะอยู่ที่ 0 ถึง 35 องศา
-      rotateY = Math.max(0, rotateY); // ไม่ให้ติดลบ = ไม่หันซ้าย
-  
+
+      let rotateY = (x / rect.width) * 25;
+      rotateY = Math.max(0, rotateY);
+
       frame.style.transform = `translateY(-50%) rotateX(0deg) rotateY(${rotateY}deg)`;
     });
-  
+
     frame.addEventListener('mouseleave', () => {
       frame.style.transform = 'translateY(-50%) rotateX(0deg) rotateY(0deg)';
     });
