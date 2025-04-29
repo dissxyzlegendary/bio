@@ -125,12 +125,6 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      /* ซ่อน glow แบบ radial */
-      /* background: radial-gradient(
-        400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-        rgba(0, 170, 255, 0.2),
-        transparent 60%
-      ); */
       transition: background 0.2s ease;
       pointer-events: none;
       z-index: 3;
@@ -141,7 +135,21 @@
       height: 100%;
       object-fit: cover;
     }
+
+    /* ซ่อนเว็บเมื่อขนาดจอเล็ก */
+    @media screen and (max-width: 1023px) {
+      body {
+        display: none !important;
+      }
+    }
   </style>
+
+  <!-- ตรวจสอบขนาดหน้าจอด้วย JavaScript -->
+  <script>
+    if (window.innerWidth < 1024) {
+      document.body.innerHTML = "<div style='color: white; text-align: center; padding: 40px; font-family: Arial, sans-serif; background-color: black; height: 100vh; display: flex; justify-content: center; align-items: center;'><h2>เว็บไซต์นี้รองรับเฉพาะบนคอมพิวเตอร์เท่านั้น</h2></div>";
+    }
+  </script>
 </head>
 <body>
 
